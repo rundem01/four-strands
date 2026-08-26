@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thank You — Four Strands</title>
+<meta name="description" content="Thank you for supporting Four Strands — the free, private tracker that weaves Scripture, strength, food, and sleep into one daily record.">
+<link rel="canonical" href="https://four-strands-v8-loom.vercel.app/thanks.html">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#E8E9E4">
+<style>
+*{box-sizing:border-box;margin:0}
+:root{
+  --bg:#e8e9e4; --paper:#f3f4ef; --edge:#d6d7cf;
+  --ink:#22231e; --muted:#6c6e63;
+  --scripture:#8a6a1a; --iron:#b04a2c; --food:#5f7339; --sleep:#47597a;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.62;
+  min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+.wrap{width:min(100% - 2.5rem,40rem);margin-inline:auto}
+header.site{padding:1.5rem 0 0}
+.band{display:block;width:100%;height:12px;border-radius:2px}
+.wordmark{font-family:var(--serif);font-size:.98rem;color:var(--ink);text-decoration:none;display:inline-block;margin-top:.85rem}
+.wordmark i{font-style:italic;color:var(--scripture)}
+main{flex:1;padding:2.4rem 0 3rem}
+.eyebrow{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,7vw,2.7rem);line-height:1.12;margin:.45rem 0 1rem}
+h2{font-family:var(--serif);font-weight:400;font-size:1.2rem;margin:1.9rem 0 .55rem}
+p{margin:0 0 1rem}
+.muted{color:var(--muted)}
+a{color:var(--scripture)}
+.cta{display:inline-block;background:var(--scripture);color:#fff;font-weight:600;text-decoration:none;padding:.7rem 1.25rem;border-radius:5px;margin:.2rem 0 1rem}
+.cta:hover{filter:brightness(1.06)}
+.sharebar{display:flex;flex-wrap:wrap;gap:.5rem;margin:.3rem 0 1rem}
+.sharebar a,.sharebar button{font:inherit;font-size:.87rem;font-weight:600;cursor:pointer;text-decoration:none;
+  color:var(--ink);background:var(--paper);border:1px solid var(--edge);border-radius:5px;padding:.48rem .8rem}
+.sharebar a:hover,.sharebar button:hover{border-color:var(--scripture);color:var(--scripture)}
+footer.site{border-top:1px solid var(--edge);padding:1.3rem 0 2rem;font-size:.85rem}
+nav.crosslinks{display:flex;flex-wrap:wrap;gap:.4rem 1.1rem;margin-bottom:.6rem}
+nav.crosslinks a{color:var(--muted);text-decoration:none}
+nav.crosslinks a:hover,nav.crosslinks a:focus-visible{color:var(--scripture)}
+:focus-visible{outline:2px solid var(--scripture);outline-offset:2px}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <svg class="band" role="img" aria-label="Four woven threads — the Four Strands mark" viewBox="0 0 400 12" preserveAspectRatio="none">
+    <rect width="400" height="12" fill="#f3f4ef"/>
+    <rect y="0.5" width="400" height="2.4" fill="#8a6a1a"/><rect y="3.4" width="400" height="2.4" fill="#b04a2c"/>
+    <rect y="6.3" width="400" height="2.4" fill="#5f7339"/><rect y="9.2" width="400" height="2.4" fill="#47597a"/>
+    <g fill="#e8e9e4"><rect x="34" width="7" height="12"/><rect x="104" width="7" height="12"/><rect x="174" width="7" height="12"/><rect x="244" width="7" height="12"/><rect x="314" width="7" height="12"/><rect x="384" width="7" height="12"/></g>
+  </svg>
+  <a class="wordmark" href="index.html">Four <i>Strands</i></a>
+</div></header>
+
+<main><div class="wrap">
+  <p class="eyebrow">Thank you</p>
+  <h1>Your thread made the cloth stronger.</h1>
+  <p>Whether you supported the project, passed it to a friend, or sent a word of encouragement — thank you. Four Strands is made by one set of hands, kept free, and kept private. People like you are what keep it on the loom.</p>
+
+  <a class="cta" href="index.html">Back to your record</a>
+
+  <h2>Pass a thread along</h2>
+  <p class="muted">Know someone whose faith and training belong in the same practice? Sharing is the biggest help of all.</p>
+  <div class="sharebar">
+    <button type="button" id="share-native" hidden>Share</button>
+    <a id="share-x" target="_blank" rel="noopener" href="#">Post on X</a>
+    <a id="share-wa" target="_blank" rel="noopener" href="#">WhatsApp</a>
+    <a id="share-fb" target="_blank" rel="noopener" href="#">Facebook</a>
+    <button type="button" id="share-copy">Copy link</button>
+  </div>
+
+  <p class="muted">Questions? The <a href="faq.html">FAQ</a> covers the essentials.</p>
+</div></main>
+
+<footer class="site"><div class="wrap">
+  <nav class="crosslinks" aria-label="Site pages">
+    <a href="index.html">Home</a><a href="faq.html">FAQ</a>
+    <a href="privacy.html">Privacy</a><a href="thanks.html" aria-current="page">Thank you</a>
+  </nav>
+  <p class="muted">Four Strands — Scripture, strength, food, sleep. Held daily.</p>
+</div></footer>
+
+<script>
+(function(){
+  var url='https://four-strands-v8-loom.vercel.app/';
+  var text='Four Strands — a free, private daily tracker weaving Scripture, strength, food, and sleep into one record.';
+  document.getElementById('share-x').href='https://twitter.com/intent/tweet?text='+encodeURIComponent(text)+'&url='+encodeURIComponent(url);
+  document.getElementById('share-wa').href='https://wa.me/?text='+encodeURIComponent(text+' '+url);
+  document.getElementById('share-fb').href='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url);
+  var n=document.getElementById('share-native');
+  if(navigator.share){n.hidden=false;n.addEventListener('click',function(){navigator.share({title:'Four Strands',text:text,url:url}).catch(function(){});});}
+  document.getElementById('share-copy').addEventListener('click',function(){var b=this;navigator.clipboard.writeText(url).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy link';},1600);});});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!-- ============================================================
+     FOUR STRANDS — index.html UPGRADE SNIPPETS  (v8 / Vercel)
+     Paste each block into your existing four-strands/index.html.
+     If you move to a custom domain later, swap the vercel.app
+     host in every URL below.
+     ============================================================ -->
+
+
+<!-- ── 1. HEAD: unique title, description, canonical ─────────────
+     You already have a good <meta name="description">. Keep it or
+     use this longer one. Add the <title> and <link> if missing.  -->
+
+<title>Four Strands — Daily Scripture, Strength, Food &amp; Sleep, Woven</title>
+<meta name="description" content="Scripture, strength, food, sleep — logged daily and woven into a record you can see. Free, private, offline-first. Your data stays on your device.">
+<link rel="canonical" href="https://four-strands-v8-loom.vercel.app/">
+
+
+<!-- ── 2. HEAD: social sharing cards (Open Graph + Twitter) ──────
+     Point og:image at your real icon file — check the filename in
+     your manifest and match it here.                             -->
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Four Strands">
+<meta property="og:title" content="Four threads, one cloth.">
+<meta property="og:description" content="Scripture, strength, food, and sleep — logged daily, woven into a record you can see. Free, private, works offline.">
+<meta property="og:url" content="https://four-strands-v8-loom.vercel.app/">
+<meta property="og:image" content="https://four-strands-v8-loom.vercel.app/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Four threads, one cloth.">
+<meta name="twitter:description" content="Scripture, strength, food, and sleep — logged daily, woven into a record you can see.">
+<meta name="twitter:image" content="https://four-strands-v8-loom.vercel.app/icon-512.png">
+
+
+<!-- ── 3. BODY: internal-linking footer ─────────────────────────
+     Add near the bottom of the page/app shell so the home page
+     links out to the new pages (they all link back to index).   -->
+
+<footer>
+  <nav aria-label="Site pages">
+    <a href="faq.html">FAQ</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="thanks.html">Thank you</a>
+  </nav>
+</footer>
+
+
+<!-- ── 4. BODY: social share bar (optional) ─────────────────────
+     Drop wherever it fits — the "All time" area is a natural spot.
+     Uses the native share sheet on phones, links elsewhere.
+     Style with your existing classes.                           -->
+
+<div class="sharebar">
+  <button type="button" id="share-native" hidden>Share Four Strands</button>
+  <a id="share-x" target="_blank" rel="noopener" href="#">Post on X</a>
+  <a id="share-wa" target="_blank" rel="noopener" href="#">WhatsApp</a>
+  <a id="share-fb" target="_blank" rel="noopener" href="#">Facebook</a>
+  <button type="button" id="share-copy">Copy link</button>
+</div>
+<script>
+(function(){
+  var url='https://four-strands-v8-loom.vercel.app/';
+  var text='Four Strands — a free, private daily tracker weaving Scripture, strength, food, and sleep into one record.';
+  document.getElementById('share-x').href='https://twitter.com/intent/tweet?text='+encodeURIComponent(text)+'&url='+encodeURIComponent(url);
+  document.getElementById('share-wa').href='https://wa.me/?text='+encodeURIComponent(text+' '+url);
+  document.getElementById('share-fb').href='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url);
+  var n=document.getElementById('share-native');
+  if(navigator.share){n.hidden=false;n.addEventListener('click',function(){navigator.share({title:'Four Strands',text:text,url:url}).catch(function(){});});}
+  document.getElementById('share-copy').addEventListener('click',function(){var b=this;navigator.clipboard.writeText(url).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy link';},1600);});});
+})();
+</script>
+
+
+<!-- ── 5. ALT TEXT: the pattern to apply across the app ──────────
+     Meaningful images get a description. Decorative ones get
+     hidden from screen readers rather than given filler text.
+
+     Meaningful icon:
+       <img src="icon-192.png" alt="Four Strands: four woven threads">
+
+     Meaningful inline SVG (e.g. the weave grid):
+       <svg role="img" aria-label="Your weave — each filled cell is one completed day"> ... </svg>
+
+     Purely decorative SVG (dividers, the header band):
+       <svg aria-hidden="true" focusable="false"> ... </svg>
+-->
+
+
+<!-- ── 6. DON'T FORGET: add the new pages to the service worker ──
+     In sw.js, add these to the precached file list so they work
+     offline too:
+         'faq.html', 'privacy.html', 'thanks.html', '404.html'
+     Then bump the cache version (or let the deploy stamp it).    -->

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://four-strands-v8-loom.vercel.app/sitemap.xml
