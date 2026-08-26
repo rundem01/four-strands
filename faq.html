@@ -4,120 +4,124 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>FAQ — Four Strands</title>
-<meta name="description" content="Answers about Four Strands: where your data lives, installing it as an app, backups, the Bible translations it carries, and what happens when you miss a day.">
+<meta name="description" content="Answers about Four Strands: where your data lives, installing it as an app, backups, the Bible translations it carries, and missed days.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Where is my data stored?","acceptedAnswer":{"@type":"Answer","text":"On your device, and nowhere else. There are no accounts and no server; your marks live in your browser's storage."}},
+{"@type":"Question","name":"How do I back up my record or move to a new device?","acceptedAnswer":{"@type":"Answer","text":"Use export to download your record as a small file, then use import on any device to restore it."}},
+{"@type":"Question","name":"Does Four Strands work offline?","acceptedAnswer":{"@type":"Answer","text":"Yes. After your first visit it caches itself and runs fully offline."}},
+{"@type":"Question","name":"How do I install it like an app?","acceptedAnswer":{"@type":"Answer","text":"On iPhone or iPad, open in Safari, tap Share, then Add to Home Screen. On Android, open in Chrome and tap Install, or Add to Home screen from the menu."}},
+{"@type":"Question","name":"Which Bible translations does it carry?","acceptedAnswer":{"@type":"Answer","text":"The Berean Standard Bible by default, plus the World English Bible and the King James Version, all embedded for offline use."}},
+{"@type":"Question","name":"What does it cost?","acceptedAnswer":{"@type":"Answer","text":"Nothing. Four Strands is free, with no ads and no locked features."}}
+]}
+</script>
 <link rel="canonical" href="https://four-strands-v8-loom.vercel.app/faq.html">
-<meta name="theme-color" content="#E8E9E4">
+<meta name="theme-color" content="#E8E9E4" id="meta-theme">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+/* match the app's saved theme before paint, no flash */
+(function(){
+  try{
+    var dark=false, raw=localStorage.getItem('four-strands-log');
+    if(raw){var p=JSON.parse(raw); if(p&&p._prefs){dark=!!p._prefs.dark;}}
+    else if(window.matchMedia&&matchMedia('(prefers-color-scheme:dark)').matches){dark=true;}
+    if(dark){document.documentElement.className='dark';
+      var m=document.getElementById('meta-theme'); if(m)m.setAttribute('content','#141A16');}
+  }catch(e){}
+})();
+</script>
 <style>
-*{box-sizing:border-box;margin:0}
-:root{
-  --bg:#e8e9e4; --paper:#f3f4ef; --edge:#d6d7cf;
-  --ink:#22231e; --muted:#6c6e63;
-  --scripture:#8a6a1a; --iron:#b04a2c; --food:#5f7339; --sleep:#47597a;
-  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
-  --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
-}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.62;
-  min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
-.wrap{width:min(100% - 2.5rem,40rem);margin-inline:auto}
-header.site{padding:1.5rem 0 0}
-.band{display:block;width:100%;height:12px;border-radius:2px}
-.wordmark{font-family:var(--serif);font-size:.98rem;color:var(--ink);text-decoration:none;display:inline-block;margin-top:.85rem}
-.wordmark i{font-style:italic;color:var(--scripture)}
-main{flex:1;padding:2rem 0 3rem}
-.eyebrow{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--muted)}
-h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,6vw,2.4rem);line-height:1.15;margin:.45rem 0 1.1rem}
-p{margin:0 0 1rem}
-.muted{color:var(--muted)}
-a{color:var(--scripture)}
-ul{padding-left:1.15rem;margin:.4rem 0 .5rem}
-li{margin-bottom:.35rem}
-details{background:var(--paper);border:1px solid var(--edge);border-left:3px solid var(--scripture);border-radius:5px;padding:.8rem 1rem;margin-bottom:.65rem}
-details:nth-of-type(4n+2){border-left-color:var(--iron)}
-details:nth-of-type(4n+3){border-left-color:var(--food)}
-details:nth-of-type(4n+4){border-left-color:var(--sleep)}
-summary{cursor:pointer;font-weight:600}
-details[open] summary{margin-bottom:.45rem}
-details p:last-child{margin-bottom:0}
-.s{font-weight:600}.s.a{color:var(--scripture)}.s.b{color:var(--iron)}.s.c{color:var(--food)}.s.d{color:var(--sleep)}
-footer.site{border-top:1px solid var(--edge);padding:1.3rem 0 2rem;font-size:.85rem}
-nav.crosslinks{display:flex;flex-wrap:wrap;gap:.4rem 1.1rem;margin-bottom:.6rem}
-nav.crosslinks a{color:var(--muted);text-decoration:none}
-nav.crosslinks a:hover,nav.crosslinks a:focus-visible{color:var(--scripture)}
-:focus-visible{outline:2px solid var(--scripture);outline-offset:2px}
+  :root{
+    --limewash:#E8E9E4;--ink:#1B2A22;--ink-soft:#5A6A60;--hair:#C3C7BC;
+    --scripture:#7A5C3E;--iron:#2F4B7C;--food:#6E8B3D;--sleep:#4A3F6B;
+    --display:'Bricolage Grotesque','Arial Narrow',Helvetica,sans-serif;
+    --body:'Public Sans',system-ui,-apple-system,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,'SFMono-Regular',Menlo,monospace;
+  }
+  html.dark{
+    --limewash:#141A16;--ink:#E2E5DC;--ink-soft:#8A9990;--hair:#333D36;
+    --scripture:#B98A5C;--iron:#5B82C4;--food:#9BC05C;--sleep:#9083C9;
+  }
+  *{box-sizing:border-box;margin:0}
+  html,body{background:var(--limewash)}
+  body{font-family:var(--body);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+  .shell{width:100%;max-width:600px;margin:0 auto;padding:24px 20px 44px;flex:1;display:flex;flex-direction:column}
+  .top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--hair);padding-bottom:11px}
+  .brand{font-family:var(--display);font-weight:800;font-size:15px;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+  .back{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none}
+  .back:hover,.back:focus-visible{color:var(--ink)}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin:34px 0 14px}
+  .weave-rule{display:flex;gap:5px;margin:0 0 26px}
+  .weave-rule i{height:5px;flex:1;border-radius:2px;display:block}
+  .weave-rule i:nth-child(1){background:var(--scripture)}
+  .weave-rule i:nth-child(2){background:var(--iron)}
+  .weave-rule i:nth-child(3){background:var(--food)}
+  .weave-rule i:nth-child(4){background:var(--sleep)}
+  h1{font-family:var(--display);font-weight:800;font-size:clamp(30px,8vw,44px);line-height:.98;letter-spacing:-.03em;margin-bottom:14px}
+  h2{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:-.01em;margin:26px 0 8px}
+  p{margin:0 0 14px}
+  .muted{color:var(--ink-soft)}
+  a{color:var(--iron)}
+  ul{padding-left:18px;margin:0 0 14px}
+  li{margin-bottom:6px}
+  .lede{border-left:3px solid var(--scripture);background:rgba(0,0,0,.025);padding:14px 16px;margin-bottom:22px}
+  html.dark .lede{background:rgba(255,255,255,.035)}
+  .lede p{margin:0}
+  .foot{margin-top:auto;padding-top:20px;border-top:1px solid var(--hair);display:flex;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+  .foot a{color:var(--ink-soft);text-decoration:none}
+  .foot a:hover,.foot a:focus-visible{color:var(--ink)}
+  .foot a[aria-current]{color:var(--ink)}
+  :focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+  details{border:1px solid var(--hair);border-radius:8px;padding:12px 14px;margin-bottom:8px}
+  summary{cursor:pointer;font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:-.01em}
+  details[open] summary{margin-bottom:8px}
+  details p:last-child{margin-bottom:0}
+  .s{font-weight:700}.s.sc{color:var(--scripture)}.s.ir{color:var(--iron)}.s.fo{color:var(--food)}.s.sl{color:var(--sleep)}
 </style>
 </head>
 <body>
-<header class="site"><div class="wrap">
-  <svg class="band" role="img" aria-label="Four woven threads — the Four Strands mark" viewBox="0 0 400 12" preserveAspectRatio="none">
-    <rect width="400" height="12" fill="#f3f4ef"/>
-    <rect y="0.5" width="400" height="2.4" fill="#8a6a1a"/><rect y="3.4" width="400" height="2.4" fill="#b04a2c"/>
-    <rect y="6.3" width="400" height="2.4" fill="#5f7339"/><rect y="9.2" width="400" height="2.4" fill="#47597a"/>
-    <g fill="#e8e9e4"><rect x="34" width="7" height="12"/><rect x="104" width="7" height="12"/><rect x="174" width="7" height="12"/><rect x="244" width="7" height="12"/><rect x="314" width="7" height="12"/><rect x="384" width="7" height="12"/></g>
-  </svg>
-  <a class="wordmark" href="index.html">Four <i>Strands</i></a>
-</div></header>
+<div class="shell">
+  <div class="top">
+    <a class="brand" href="index.html">Four strands</a>
+    <a class="back" href="index.html">&larr; Back</a>
+  </div>
+  <div class="weave-rule" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 
-<main><div class="wrap">
-  <p class="eyebrow">Questions</p>
+  <p class="kicker">Questions</p>
   <h1>Worth knowing before the first row.</h1>
-
   <details><summary>What is Four Strands?</summary>
-    <p>A quiet daily tracker for people who want their faith and their body kept in the same practice. Each day you mark four things, and every full day is woven into a record you can see grow.</p></details>
-
+    <p>A quiet ledger for daily living. Each day you mark four things &mdash; Scripture, dumbbells, food, and sleep &mdash; and every day becomes a row woven into a record you can watch hold or fray.</p></details>
   <details><summary>What are the four strands?</summary>
     <ul>
-      <li><span class="s a">Scripture</span> — a passage read and sat with.</li>
-      <li><span class="s b">Strength</span> — dumbbells, or honest recovery.</li>
-      <li><span class="s c">Food</span> — one focus kept through the day.</li>
-      <li><span class="s d">Sleep</span> — hours held, screens put down.</li>
+      <li><span class="s sc">Scripture</span> &mdash; a passage read and sat with.</li>
+      <li><span class="s ir">The iron</span> &mdash; dumbbells, or honest recovery.</li>
+      <li><span class="s fo">Food</span> &mdash; one focus kept through the day.</li>
+      <li><span class="s sl">Sleep</span> &mdash; hours held, screens put down.</li>
     </ul>
-    <p>Mark all four in a day and that day lays a full row in the weave.</p></details>
-
+    <p>Mark all four in a day and that row is solid; miss one and it shows as a gap.</p></details>
   <details><summary>Where is my data stored?</summary>
-    <p>On your device, and nowhere else. There are no accounts and no server — your marks live in your browser's storage. The <a href="privacy.html">privacy policy</a> has the full picture.</p></details>
-
+    <p>On your device, and nowhere else. No accounts, no server &mdash; your marks live in your browser's storage. The <a href="privacy.html">privacy policy</a> has the full picture.</p></details>
   <details><summary>How do I back up my record, or move to a new device?</summary>
-    <p>Use export to download your record as a small file, keep it somewhere safe, and use import on any device to restore it. Do this before clearing your browser or switching phones — local storage doesn't survive either on its own.</p></details>
-
+    <p>Export downloads your record as a small file; keep it somewhere safe and import it on any device to restore. Do this before clearing your browser or switching phones &mdash; local storage doesn't survive either on its own.</p></details>
   <details><summary>Does it work offline?</summary>
-    <p>Yes. After your first visit it caches itself and runs fully offline — marks, the weave, and all the guides.</p></details>
-
-  <details><summary>How do I install it like a normal app?</summary>
-    <p>On iPhone or iPad: open the site in Safari, tap Share, then <strong>Add to Home Screen</strong>. On Android: open it in Chrome and tap <strong>Install</strong> when offered, or choose <strong>Add to Home screen</strong> from the menu. It then opens full-screen from its own icon.</p></details>
-
+    <p>Yes. After your first visit it caches itself and runs fully offline &mdash; marks, the weave, and every guide.</p></details>
+  <details><summary>How do I install it like an app?</summary>
+    <p>On iPhone or iPad: open in Safari, tap Share, then <strong>Add to Home Screen</strong>. On Android: open in Chrome and tap <strong>Install</strong>, or <strong>Add to Home screen</strong> from the menu. It then opens full-screen from its own icon.</p></details>
   <details><summary>Which Bible translations does it carry?</summary>
-    <p>The Berean Standard Bible by default, plus the World English Bible and the King James Version. All three are public domain or CC0 and live inside the app, which is part of why it works with no internet.</p></details>
-
+    <p>The Berean Standard Bible by default, plus the World English Bible and the King James Version. All are public domain or CC0 and live inside the app, which is part of why it needs no internet.</p></details>
   <details><summary>What happens if I miss a day?</summary>
-    <p>The weave simply shows an open space for that day. Nothing is deleted and nothing resets. The record is honest, but it's patient — the point is coming back tomorrow, not keeping a spotless run.</p></details>
-
+    <p>The weave shows a gap for that day. Nothing is deleted and nothing resets &mdash; the record is honest but patient. The point is the next row, not a spotless run.</p></details>
   <details><summary>What does it cost?</summary>
     <p>Nothing. Four Strands is free, with no ads and no locked features.</p></details>
-
-  <details><summary>Who is it for?</summary>
-    <p>Anyone wanting a simple, private way to hold Scripture, training, eating, and rest as one daily practice — on their own, with a training partner, or across a whole community where faith and fitness meet.</p></details>
-
-  <p class="muted" style="margin-top:1.3rem">Missing an answer? Open an issue on the project's GitHub repository and it'll be added here.</p>
-</div></main>
-
-<footer class="site"><div class="wrap">
-  <nav class="crosslinks" aria-label="Site pages">
-    <a href="index.html">Home</a><a href="faq.html" aria-current="page">FAQ</a>
-    <a href="privacy.html">Privacy</a><a href="thanks.html">Thank you</a>
-  </nav>
-  <p class="muted">Four Strands — Scripture, strength, food, sleep. Held daily.</p>
-</div></footer>
-
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"What is Four Strands?","acceptedAnswer":{"@type":"Answer","text":"A quiet daily tracker for people who want their faith and their body kept in the same practice. Each day you mark four things — Scripture, strength, food, and sleep — and every full day is woven into a record you can watch grow."}},
-{"@type":"Question","name":"Where is my data stored?","acceptedAnswer":{"@type":"Answer","text":"On your device, and nowhere else. There are no accounts and no server — your marks live in your browser's storage."}},
-{"@type":"Question","name":"How do I back up my record or move to a new device?","acceptedAnswer":{"@type":"Answer","text":"Use export to download your record as a small file, then use import on any device to restore it."}},
-{"@type":"Question","name":"Does Four Strands work offline?","acceptedAnswer":{"@type":"Answer","text":"Yes. After your first visit it caches itself and runs fully offline."}},
-{"@type":"Question","name":"How do I install Four Strands like a normal app?","acceptedAnswer":{"@type":"Answer","text":"On iPhone or iPad, open the site in Safari, tap Share, then Add to Home Screen. On Android, open it in Chrome and tap Install, or choose Add to Home screen from the menu."}},
-{"@type":"Question","name":"Which Bible translations does it carry?","acceptedAnswer":{"@type":"Answer","text":"The Berean Standard Bible by default, plus the World English Bible and the King James Version, all embedded for offline use."}},
-{"@type":"Question","name":"What does Four Strands cost?","acceptedAnswer":{"@type":"Answer","text":"Nothing. It is free, with no ads and no locked features."}}
-]}
-</script>
+  <p class="muted" style="margin-top:16px">Missing an answer? Open an issue on the project's GitHub repository and it'll be added here.</p>
+  <footer class="foot">
+    <a href="index.html">Home</a>
+    <a href="faq.html" aria-current="page">FAQ</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="thanks.html">Thanks</a>
+  </footer>
+</div>
 </body>
 </html>
