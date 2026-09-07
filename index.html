@@ -307,6 +307,7 @@
   .guide[data-strand="iron"]{border-left-color:var(--iron);}
   .guide[data-strand="food"]{border-left-color:var(--food);}
   .guide[data-strand="sleep"]{border-left-color:var(--sleep);}
+  .guide[data-strand="how"]{border-left-color:var(--ink-soft);}
   .guide > button{
     width:100%;display:flex;justify-content:space-between;align-items:baseline;gap:10px;
     background:transparent;border:none;cursor:pointer;color:var(--ink);
@@ -384,7 +385,7 @@
     <div class="land-points">
       <div><b>The weave</b><p>Every day is a row. Consistency shows as solid colour; drift shows as holes.</p></div>
       <div><b>Daily verse</b><p>A public-domain verse each morning — no account, no links, yours offline.</p></div>
-      <div><b>Guides</b><p>Translations compared, three dumbbell routines, five ways to eat, what actually fixes sleep.</p></div>
+      <div><b>Guides</b><p>How the app works, plus translations compared, three dumbbell routines, five ways to eat, what actually fixes sleep.</p></div>
       <div><b>Private</b><p>Everything stays on this device. No sign-up, no server, no one watching.</p></div>
     </div>
 
@@ -434,7 +435,52 @@
 
   <div id="view-guides">
     <h1 class="page">Guides</h1>
-    <div class="subhead">Reference for each of the four. Open what you need.</div>
+    <div class="subhead">How the app works, then reference for each of the four.</div>
+
+    <div class="guide" data-strand="how" id="guide-how">
+      <button><h3>Using Four Strands</h3><span class="hint">Start here</span></button>
+      <div class="body">
+        <div class="card">
+          <div class="h"><span>Mark the four</span><span class="meta">One tap each</span></div>
+          <p>Tap a strand to mark it held for today; tap again to unmark it. A held strand fills with its own colour — sepia for Scripture, blue for dumbbells, green for food, violet for sleep. Four taps is a complete day. Nothing else is required.</p>
+        </div>
+
+        <div class="card">
+          <div class="h"><span>Every day is a row</span><span class="meta">Last 8 weeks</span></div>
+          <p>Below the cards, each of the last fifty-six days is a row and each strand a column. Today sits at the top in a taller row. Every cell in the weave is tappable, so a day you forgot to mark can be filled in whenever you remember. Solid colour reads as a run; the gaps read as drift.</p>
+        </div>
+
+        <div class="card">
+          <div class="h"><span>One line a day</span><span class="meta">Optional</span></div>
+          <p>The line under the strand cards takes up to 140 characters and saves as you type. It belongs to that day alone — the verse that snagged you, the weight you hit, why the night was short.</p>
+        </div>
+
+        <div class="card">
+          <div class="h"><span>Current run</span><span class="meta">How it counts</span></div>
+          <p>Each number counts back from today until the strand was missed. Today being unmarked doesn't break it — a run only ends on a day that has passed unheld, so the number won't punish you at breakfast.</p>
+        </div>
+
+        <div class="card">
+          <div class="h"><span>Verse of the day</span><span class="meta">Same for everyone</span></div>
+          <p>The morning verse is chosen by the date rather than at random, so it's the same verse on the same day on any device. The full collection sits under Scripture below, with prev, next, and a jump back to today's.</p>
+        </div>
+
+        <div class="card">
+          <div class="h"><span>Where your record lives</span><span class="meta">This device only</span></div>
+          <ul>
+            <li>Stored in this browser — no account, no server, nothing sent anywhere</li>
+            <li>Which also means it doesn't sync between your phone and your laptop</li>
+            <li>Clearing site data, or using private browsing, clears the record</li>
+            <li>Clear all does the same, immediately, and it can't be undone</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="h"><span>Keep it to hand</span><span class="meta">Install</span></div>
+          <p>Add to home screen from your browser's share or menu and it opens like an app, with no signal needed. Track and Guides are the two tabs at the top; the wordmark returns to the front page, and the circle beside it switches between light and dark.</p>
+        </div>
+      </div>
+    </div>
 
     <div class="guide" data-strand="scripture">
       <button><h3>Scripture</h3><span class="hint">Verses &amp; versions</span></button>
@@ -918,6 +964,14 @@
   vbIndex = verseIndexForToday();
   renderBrowse();
   if(log._prefs && log._prefs.entered){ showApp(); } else { showLanding(); }
+
+  /* first-timers land on an open manual; anyone with days on record doesn't */
+  (function(){
+    var g = $('guide-how');
+    if(!g) return;
+    var hasDays = Object.keys(log).some(function(k){ return k !== '_prefs'; });
+    if(!hasDays) g.classList.add('open');
+  })();
 
   if('serviceWorker' in navigator){
     window.addEventListener('load', function(){
