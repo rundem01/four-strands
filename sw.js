@@ -1,5 +1,5 @@
 /* Four Strands service worker — cache-first so the app opens offline */
-const CACHE = 'four-strands-v2';
+const CACHE = 'four-strands-v3';
 const ASSETS = [
   './',
   './index.html',
@@ -12,12 +12,10 @@ const ASSETS = [
   './icon-512.png',
   './apple-touch-icon.png'
 ];
-
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));
   self.skipWaiting();
 });
-
 self.addEventListener('activate', e => {
   e.waitUntil(
     caches.keys().then(keys =>
@@ -26,7 +24,6 @@ self.addEventListener('activate', e => {
   );
   self.clients.claim();
 });
-
 self.addEventListener('fetch', e => {
   e.respondWith(
     caches.match(e.request).then(hit =>
